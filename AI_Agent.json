@@ -1,0 +1,262 @@
+{
+  "agent_id": "",
+  "channel": "voice",
+  "last_modification_timestamp": 1781680823752,
+  "agent_name": "Testing0616",
+  "response_engine": {
+    "type": "conversation-flow",
+    "version": 1,
+    "conversation_flow_id": "conversation_flow_8f02f64aeef5"
+  },
+  "language": "zh-CN",
+  "data_storage_setting": "everything",
+  "opt_in_signed_url": false,
+  "version": 1,
+  "base_version": 0,
+  "assigned_tags": [],
+  "is_published": false,
+  "post_call_analysis_model": "gpt-5.4-nano",
+  "pii_config": {
+    "mode": "post_call",
+    "categories": []
+  },
+  "handbook_config": {
+    "default_personality": true,
+    "ai_disclosure": true
+  },
+  "post_call_analysis_data": [
+    {
+      "name": "宮廟名稱",
+      "description": "受訪者的宮廟名稱",
+      "type": "string",
+      "examples": [
+        "艋舺龍山寺, 行天宮, 大龍峒保安宮, 台北霞海城隍廟 , 松山慈祐宮, 關渡宮, 碧山巖開漳聖王廟, 艋舺青山宮, 台北市孔廟, 松山奉天宮"
+      ]
+    },
+    {
+      "name": "籤詩名稱",
+      "description": "使用的籤詩名稱",
+      "type": "string",
+      "examples": [
+        "六十甲子籤, 雷雨師一百籤, 觀音菩薩一百籤, 呂祖六十籤, 保生大帝六十籤, 清水祖師六十籤, 天上聖母一百籤, 月老星君靈籤, 五路財神靈籤, 註生娘娘三十籤"
+      ]
+    },
+    {
+      "name": "語系",
+      "description": "受訪者的籤詩需要的語系",
+      "type": "string",
+      "examples": [
+        "中文, 台語, 英文, 日文, 越南文"
+      ]
+    },
+    {
+      "name": "受訪者姓名",
+      "description": "聯絡對象姓名",
+      "type": "string",
+      "examples": [
+        "黃先生, 陳小姐"
+      ]
+    },
+    {
+      "type": "number",
+      "name": "電話號碼",
+      "description": "受訪者聯絡電話"
+    }
+  ],
+  "voice_id": "minimax-May",
+  "voice_temperature": 1,
+  "voice_speed": 1,
+  "volume": 1,
+  "expressive_emotion_tags": [],
+  "max_call_duration_ms": 3600000,
+  "interruption_sensitivity": 0.9,
+  "allow_user_dtmf": true,
+  "user_dtmf_options": {},
+  "conversationFlow": {
+    "conversation_flow_id": "conversation_flow_8f02f64aeef5",
+    "version": 1,
+    "last_modification_timestamp": 1781680823740,
+    "global_prompt": "# Role\n你是 AIGO Asia 的客服專員 Amber。語氣親切專業，請用道地的台灣中文，並一律尊稱對方為「您」。\n\n# Objective\n推廣 AIGO Asia 全新推出的「AI 解籤服務」，並引導有興趣的宮廟代表提供關鍵需求資訊，以便後續進行技術對接與規格評估。\n\n# Voice & Style Rules (🚨 語音專用核心死命令)\n1. **精簡至上**：這是在通話，每輪回答嚴格限制在 2 句話以內。絕對不要長篇大論。\n2. **一次只問一題**：嚴禁一口氣拋出多個問題。必須等對方回答完一題，才能問下一題。\n3. **嚴禁洩漏內部邏輯**：絕對不要在對話中說出「下一題」、「下一步」、「欄位」、「完成進度」或「收集資料」等任何內部提示字眼！你是一個真正的真人客服，講話要完全自然。\n4. **禁止重複與死板套話**：只要使用者回答了某個問題（不論多短，如「60甲子」），就代表該項目已完成。立刻自然地接話並詢問下一個未知的問題，不要每句話都加上重播或死板的覆誦（例如：絕對不要每句都重複「XX宮您好」）。\n5. **絕對禁止盲猜**：不要預設或猜測對方的宮廟名稱。必須由對方親口說出。\n\n# Information Checklist to Collect (請由上往下嚴格檢查歷史紀錄，沒問過的才問)\n請檢查對話歷史紀錄，只要發現以下項目在歷史紀錄中「完全沒有被提及」，就在下一輪對話中進行詢問。一次只問一項：\n\n- **項目 A：宮廟名稱**\n  * *檢查點*：如果使用者「從未」親口說出他們是哪間廟，必須最先詢問這題。\n  * *自然提問示範*：「太棒了！那想先請教一下，您代表的是哪一間宮廟呢？」\n- **項目 B：籤詩種類**\n  * *檢查點*：如果歷史紀錄中沒有出現任何籤詩名稱（如60甲子、雷雨師），才問這題。\n  * *自然提問示範*：「了解。那請問貴宮廟目前主要都是使用哪一種籤詩呢？」\n- **項目 C：需求語系**\n  * *檢查點*：我們支援國語、台語、英文、日文、越南文。\n  * *自然提問示範*：「好的。在語系方面，除了國語和台語，會需要幫您開通英文、日文或越南文來服務國外信眾嗎？」\n- **項目 D：聯絡人姓名/姓氏**\n  * *自然提問示範*：「沒問題，那方便請教您的貴姓，要怎麼稱呼您呢？」\n- **項目 E：聯絡電話**\n  * *自然提問示範*：「好的，那方不方便留一下您的聯絡電話，方便我們專人後續回撥聯絡？」\n\n# Workflow Constraints\n- **過渡期限制**：如果對方在 Welcome 階段還沒表現出明確意願，先專注於一兩句話介紹 AI 解籤服務的優勢（如：全天候服務、多國語言指點迷津）。\n- **收尾規則**：只要這五個項目在對話中都已經有了答案，請立刻親切地向對方說謝謝、祝對方物阜民安、平安順心，並直接禮貌地結束通話（或觸發 Transition 掛斷），絕對不要在原地兜圈子。",
+    "nodes": [
+      {
+        "name": "End Call",
+        "id": "end-call-node-1781593586965",
+        "type": "end",
+        "display_position": {
+          "x": 1614,
+          "y": 1014
+        },
+        "instruction": {
+          "type": "prompt",
+          "text": "Politely end the call"
+        }
+      },
+      {
+        "instruction": {
+          "type": "prompt",
+          "text": "先自我介紹, 詢問對方需不需要安裝宮廟解籤電話？"
+        },
+        "name": "Welcome Node",
+        "edges": [
+          {
+            "destination_node_id": "node-1781601387470",
+            "id": "edge-1",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "受訪者說需要"
+            }
+          },
+          {
+            "destination_node_id": "node-1781594353532",
+            "id": "edge-2",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "受訪者說不需要"
+            }
+          }
+        ],
+        "start_speaker": "agent",
+        "id": "start-node-1781593586965",
+        "type": "conversation",
+        "display_position": {
+          "x": 558,
+          "y": 6
+        }
+      },
+      {
+        "name": "Conversation",
+        "edges": [
+          {
+            "destination_node_id": "end-call-node-1781593586965",
+            "id": "edge-1781594353532-b8p1iu8it",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "skip response"
+            }
+          }
+        ],
+        "id": "node-1781594353532",
+        "type": "conversation",
+        "display_position": {
+          "x": 1086,
+          "y": 942
+        },
+        "instruction": {
+          "type": "static_text",
+          "text": "謝謝你的時間，我的同事會再與您聯繫"
+        }
+      },
+      {
+        "name": "Conversation",
+        "edges": [
+          {
+            "destination_node_id": "node-1781601440020",
+            "id": "edge-1781601387470-56ibm8ws9",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "使用者回答了"
+            }
+          }
+        ],
+        "id": "node-1781601387470",
+        "type": "conversation",
+        "display_position": {
+          "x": 1110,
+          "y": 246
+        },
+        "instruction": {
+          "type": "static_text",
+          "text": "請問您的宮廟名稱"
+        }
+      },
+      {
+        "name": "Conversation",
+        "edges": [
+          {
+            "destination_node_id": "conversation-1781601478978-0",
+            "id": "edge-1781601440020-8mfuzaizh",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "使用者回答了"
+            }
+          }
+        ],
+        "id": "node-1781601440020",
+        "type": "conversation",
+        "display_position": {
+          "x": 1662,
+          "y": 246
+        },
+        "instruction": {
+          "type": "static_text",
+          "text": "請問使用的是什麼詩籤？"
+        }
+      },
+      {
+        "name": "Conversation",
+        "edges": [
+          {
+            "destination_node_id": "conversation-1781601547423-0",
+            "id": "conversation-1781601478978-0-edge-1781601478978-0",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "使用者回答了"
+            }
+          }
+        ],
+        "id": "conversation-1781601478978-0",
+        "type": "conversation",
+        "display_position": {
+          "x": 2190,
+          "y": 246
+        },
+        "instruction": {
+          "type": "static_text",
+          "text": "請問需要哪種語系來解說詩籤？中文？台語？英文？日文？越南文"
+        }
+      },
+      {
+        "name": "Conversation",
+        "edges": [
+          {
+            "destination_node_id": "node-1781594353532",
+            "id": "conversation-1781601547423-0-edge-1781601547423-0",
+            "transition_condition": {
+              "type": "prompt",
+              "prompt": "使用者回答了"
+            }
+          }
+        ],
+        "id": "conversation-1781601547423-0",
+        "type": "conversation",
+        "display_position": {
+          "x": 2742,
+          "y": 246
+        },
+        "instruction": {
+          "type": "static_text",
+          "text": "沒問題，那方便請教您的貴姓，要怎麼稱呼您呢？"
+        }
+      }
+    ],
+    "start_node_id": "start-node-1781593586965",
+    "start_speaker": "agent",
+    "model_choice": {
+      "type": "cascading",
+      "model": "gpt-5-nano",
+      "high_priority": false
+    },
+    "tool_call_strict_mode": true,
+    "knowledge_base_ids": [],
+    "kb_config": {
+      "top_k": 3,
+      "filter_score": 0.6
+    },
+    "begin_tag_display_position": {
+      "x": 6,
+      "y": 54
+    },
+    "is_published": false,
+    "is_transfer_cf": false
+  }
+}
